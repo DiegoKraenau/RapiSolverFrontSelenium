@@ -67,7 +67,8 @@
 			<label >Categoría:</label><br>
            <select id="label4" class="browser-default custom-select form-control col-lg-3 col-md-3 col-xs-12" v-model="servicio.categoryName">
                 <option selected >Selección la categoría</option>
-                <option v-for="categoria in categorias" :key="categoria.serviceCategoryId">{{categoria.categoryName}}</option>
+                <option selected >Electricidad</option>
+                
             </select>
 		</div>
 		<div class="form-group" >
@@ -112,7 +113,7 @@ export default {
         }
     },
     mounted(){
-        this.getCategorias();
+        //this.getCategorias();
         this.getSupplier();
         this.getUsuario();
     },
@@ -219,7 +220,7 @@ export default {
                     description: _this.servicio.description,
                     cost: parseInt(_this.servicio.cost),
                     categoryName: _this.servicio.categoryName
-                }, this.config).then(function(data){
+                }, _this.config).then(function(data){
                     document.getElementById('spinner').style.display ='none'
                     document.getElementById('mensaje4').style.display ='none'
                     document.getElementById('mensaje2').style.display ='block'
